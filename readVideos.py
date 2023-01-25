@@ -8,7 +8,14 @@ print(ok)
 if not ok:
     print('Could not read video')
     sys.exit()
-
+if cap.isOpened() == True:
+    print("No Errors occured with camera")
+else:
+    print("Errors occured with camera, but fixing it...")
+    cap.open()
+print(cap.get(3), cap.get(4))
+cap = cap.set(3,320)
+print(cap.get(3), cap.get(4))
 while True:
     # Capture frame-by-frame
     ok, frame = cap.read()
